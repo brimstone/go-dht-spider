@@ -52,8 +52,9 @@ func main() {
 				continue
 			}
 			bt := BitTorrent{
-				InfoHash: hex.EncodeToString(resp.InfoHash),
-				Name:     info["name"].(string),
+				Timestamp: time.Now().Unix(),
+				InfoHash:  hex.EncodeToString(resp.InfoHash),
+				Name:      info["name"].(string),
 			}
 			if v, ok := info["files"]; ok {
 				files := v.([]interface{})
